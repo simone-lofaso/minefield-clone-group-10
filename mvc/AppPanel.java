@@ -1,5 +1,7 @@
 package mvc;
 
+import mineField.MineField;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,7 +43,7 @@ public class AppPanel extends JPanel implements ActionListener{
         JMenuBar result = new JMenuBar();
         JMenu fileMenu = Utilities.makeMenu("File", new String[]{"New", "Save", "SaveAs", "Open", "Quit"}, this);
         result.add(fileMenu);
-        JMenu editMenu = Utilities.makeMenu("Edit", new String[]{"North", "South", "East", "West", "Northeast", "Northwest", "Southwest", "Southeast"}, this);
+        JMenu editMenu = Utilities.makeMenu("Edit", new String[]{"N", "S", "E", "W", "NE", "NW", "SW", "SE"}, this);
         result.add(editMenu);
         JMenu helpMenu = Utilities.makeMenu("Help", new String[]{"About", "Help"}, this);
         result.add(helpMenu);
@@ -109,14 +111,14 @@ public class AppPanel extends JPanel implements ActionListener{
                 }
                 case "Help" -> {
                     String[] cmmds = new String[]{
-                            "North: Makes Sergeant Rock move North",
-                            "South: Makes Sergeant Rock move South",
-                            "West: Makes Sergeant Rock move West",
-                            "East: Makes Sergeant Rock move East",
-                            "Northeast: Makes Sergeant Rock move Northeast",
-                            "Northwest: Makes Sergeant Rock move Northwest",
-                            "Southwest: Makes Sergeant Rock move Southwest",
-                            "Southeast: Makes Sergeant Rock move Southeast"
+                            "N: Makes Sergeant Rock move North",
+                            "S: Makes Sergeant Rock move South",
+                            "W: Makes Sergeant Rock move West",
+                            "E: Makes Sergeant Rock move East",
+                            "NE: Makes Sergeant Rock move Northeast",
+                            "NW: Makes Sergeant Rock move Northwest",
+                            "SW: Makes Sergeant Rock move Southwest",
+                            "SE: Makes Sergeant Rock move Southeast"
 
                     };
                     Utilities.inform(cmmds);
@@ -177,6 +179,8 @@ public class AppPanel extends JPanel implements ActionListener{
 
     public static void main(String[] args) {
         AppPanel app = new AppPanel();
-    }
 
+        MineField board = new MineField();
+        board.test();
+    }
 }

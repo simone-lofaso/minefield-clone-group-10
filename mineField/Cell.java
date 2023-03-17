@@ -8,14 +8,19 @@
  */
 package mineField;
 
+import java.awt.*;
+
 public class Cell {
     public boolean hasMine; //true if the cell has a mine
-    public boolean isVisited; //true if cell has been seen by Sgt Rock, false otherwise
+    public boolean seen; //true if cell has been seen by Sgt Rock, false otherwise
     public int adjMines; //number of mines touching the indicated cell
+
+    public Color color; //grey for unvisited, white for visited, green for win
 
     public Cell(){
         hasMine = false;
-        isVisited = false;
+        seen = false;
         adjMines = 0;
+        color = Color.gray;
     }
 }
