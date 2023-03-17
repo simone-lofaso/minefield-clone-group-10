@@ -6,6 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+/**
+ * This class creates the AppPanel for the MineField game board, and contains inner class ControlPanel,
+ * which contains the JButtons and menu for the game
+ *
+ * NOTE FOR TEAM: View still needs to be implemented. Control Panel should be finished so the
+ * game board does not yet show up when you run it.
+ */
+
 public class AppPanel extends JPanel implements ActionListener{
     private ControlPanel controls;
     private View view;
