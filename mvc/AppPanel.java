@@ -1,6 +1,8 @@
 package mvc;
 
+import mineField.Heading;
 import mineField.MineField;
+import mineField.SgtRock;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +21,7 @@ import java.io.*;
 public class AppPanel extends JPanel implements ActionListener{
     private ControlPanel controls;
     private View view;
+    private SgtRock rock;
 
     private String fName; //for save  saveAs
 
@@ -37,7 +40,10 @@ public class AppPanel extends JPanel implements ActionListener{
         frame.setTitle("Mine Field");
         frame.setSize(500, 300);
         frame.setVisible(true);
+
+        SgtRock rock = new SgtRock();
     }
+
 
     protected JMenuBar createMenuBar() {
         JMenuBar result = new JMenuBar();
@@ -56,29 +62,53 @@ public class AppPanel extends JPanel implements ActionListener{
         String cmmd = e.getActionCommand();
         try {
             switch (cmmd) {
-                case "North" -> {
-
+                case "N" -> {
+                   rock.move(Heading.N);
+                   if (rock.isGameDone()){
+                       gameEnded();
+                   }
                 }
-                case "East" -> {
-
+                case "E" -> {
+                    rock.move(Heading.E);
+                    if (rock.isGameDone()){
+                        gameEnded();
+                    }
                 }
-                case "West" -> {
-
+                case "W" -> {
+                    rock.move(Heading.W);
+                    if (rock.isGameDone()){
+                        gameEnded();
+                    }
                 }
-                case "South" -> {
-
+                case "S" -> {
+                    rock.move(Heading.S);
+                    if (rock.isGameDone()){
+                        gameEnded();
+                    }
                 }
-                case "Northeast" -> {
-
+                case "NE" -> {
+                    rock.move(Heading.NE);
+                    if (rock.isGameDone()){
+                        gameEnded();
+                    }
                 }
-                case "Northwest" -> {
-
+                case "NW" -> {
+                    rock.move(Heading.NW);
+                    if (rock.isGameDone()){
+                        gameEnded();
+                    }
                 }
-                case "Southwest" -> {
-
+                case "SW" -> {
+                    rock.move(Heading.SW);
+                    if (rock.isGameDone()){
+                        gameEnded();
+                    }
                 }
-                case "Southeast" -> {
-
+                case "SE" -> {
+                    rock.move(Heading.SE);
+                    if (rock.isGameDone()){
+                        gameEnded();
+                    }
                 }
                 case "SaveAs" -> {
                     fName = Utilities.getFileName((String) null, false);
@@ -133,7 +163,13 @@ public class AppPanel extends JPanel implements ActionListener{
         }
     }
 
-
+    //throws dialogue box determining win or loss
+    private void gameEnded(){
+        if (rock.getxPos() == 19 && rock.getyPos() == 19){
+            JOptionPane.showMessageDialog(null, "Congratulations! You win!");
+        }
+        else JOptionPane.showMessageDialog(null, "You died :(");
+    }
     class ControlPanel extends JPanel {
         public ControlPanel() {
             setBackground(Color.PINK);

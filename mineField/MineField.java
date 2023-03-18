@@ -12,8 +12,9 @@ import java.util.Random;
 
 public class MineField {
     private static final int percentMined = 5;
-    public Cell[][] field = new Cell[20][20];
+    public static Cell[][] field;
     public MineField(){ //should be a 20x20 grid of Cells
+        field = new Cell[20][20];
         Random mineGen = new Random();
         for(int i = 0; i < field.length; i++){
             for (int j = 0; j < field[0].length; j++){
@@ -193,5 +194,9 @@ public class MineField {
             }
             System.out.println();
         }
+    }
+
+    public static boolean getHasMine(int x, int y){
+        return field[x][y].hasMine;
     }
 }
