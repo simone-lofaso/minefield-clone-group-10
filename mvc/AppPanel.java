@@ -35,6 +35,8 @@ public class AppPanel extends JPanel implements ActionListener{
         frame.setTitle("Mine Field");
         frame.setSize(500, 300);
         frame.setVisible(true);
+
+        rock = new SgtRock();
     }
 
 
