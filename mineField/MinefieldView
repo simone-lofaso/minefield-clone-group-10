@@ -1,0 +1,21 @@
+package mineField;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class MinefieldView extends JPanel {
+    public MinefieldView() {
+
+        setBackground(Color.GRAY);
+        setLayout(new GridLayout(20, 20));
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                JLabel current = new JLabel();
+                current.setBackground(Color.gray);
+                current.setBorder(BorderFactory.createLineBorder(Color.black));
+                current.setText("?");
+                add(current);
+            }
+        }
+    }
+}
