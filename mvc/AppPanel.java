@@ -3,6 +3,7 @@ package mvc;
 import mineField.Heading;
 import mineField.MineField;
 import mineField.SgtRock;
+import mineField.MinefieldView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,18 +21,18 @@ import java.io.*;
 
 public class AppPanel extends JPanel implements ActionListener{
     private ControlPanel controls;
-    private View view;
+    private MinefieldView view;
     private SgtRock rock;
 
     private String fName; //for save  saveAs
 
 
     public AppPanel() {
-        view = new View();
+        view = new MinefieldView();
         controls = new ControlPanel();
         this.setLayout((new GridLayout(1, 2)));
         this.add(controls);
-        //this.add(view);
+        this.add(view);
 
         SafeFrame frame = new SafeFrame();
         Container cp = frame.getContentPane();
