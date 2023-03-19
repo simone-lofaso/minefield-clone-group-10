@@ -34,7 +34,6 @@ public class AppPanel extends JPanel implements ActionListener{
         frame.setJMenuBar(this.createMenuBar());
         frame.setTitle("Mine Field");
         frame.setSize(500, 300);
-        frame.setVisible(true);
     }
 
 
