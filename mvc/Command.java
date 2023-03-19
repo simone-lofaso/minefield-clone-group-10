@@ -1,6 +1,6 @@
 package mvc;
 
-public class Command {
+public abstract class Command {
   
     public Model model;
     public Command(Model model) { this.model = model; }
