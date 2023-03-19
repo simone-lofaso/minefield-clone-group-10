@@ -3,6 +3,10 @@ package mineField;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Note for team: this should probably extend view instead of jpanel, but I am not sure. Please
+ * investigate and let me know when/if you change it
+ */
 public class MinefieldView extends JPanel {
     public MinefieldView() {
 

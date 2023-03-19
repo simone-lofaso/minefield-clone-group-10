@@ -42,7 +42,7 @@ public class AppPanel extends JPanel implements ActionListener{
         frame.setSize(500, 300);
         frame.setVisible(true);
 
-        SgtRock rock = new SgtRock();
+        rock = new SgtRock();
     }
 
 
