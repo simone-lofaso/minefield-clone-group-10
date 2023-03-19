@@ -1,7 +1,7 @@
 package mvc;
 
-public class AppFactory {
-  
+public interface AppFactory {
+
     Model makeModel();
     View makeView(Model m);
     Command makeEditCommand(Model m, String s, Object o);
