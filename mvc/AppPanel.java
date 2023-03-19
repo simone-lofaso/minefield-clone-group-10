@@ -2,8 +2,8 @@ package mvc;
 
 import mineField.Heading;
 import mineField.MineField;
-import mineField.SgtRock;
 import mineField.MinefieldView;
+import mineField.SgtRock;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,20 +20,14 @@ import java.io.*;
  */
 
 public class AppPanel extends JPanel implements ActionListener{
-    private ControlPanel controls;
+    /**private ControlPanel controls;
     private MinefieldView view;
-    private SgtRock rock;
+    private SgtRock rock;**/
 
     private String fName; //for save  saveAs
 
 
     public AppPanel() {
-        view = new MinefieldView();
-        controls = new ControlPanel();
-        this.setLayout((new GridLayout(1, 2)));
-        this.add(controls);
-        this.add(view);
-
         SafeFrame frame = new SafeFrame();
         Container cp = frame.getContentPane();
         cp.add(this);
@@ -41,8 +35,6 @@ public class AppPanel extends JPanel implements ActionListener{
         frame.setTitle("Mine Field");
         frame.setSize(500, 300);
         frame.setVisible(true);
-
-        SgtRock rock = new SgtRock();
     }
 
 
@@ -63,54 +55,6 @@ public class AppPanel extends JPanel implements ActionListener{
         String cmmd = e.getActionCommand();
         try {
             switch (cmmd) {
-                case "N" -> {
-                   rock.move(Heading.N);
-                   if (rock.isGameDone()){
-                       gameEnded();
-                   }
-                }
-                case "E" -> {
-                    rock.move(Heading.E);
-                    if (rock.isGameDone()){
-                        gameEnded();
-                    }
-                }
-                case "W" -> {
-                    rock.move(Heading.W);
-                    if (rock.isGameDone()){
-                        gameEnded();
-                    }
-                }
-                case "S" -> {
-                    rock.move(Heading.S);
-                    if (rock.isGameDone()){
-                        gameEnded();
-                    }
-                }
-                case "NE" -> {
-                    rock.move(Heading.NE);
-                    if (rock.isGameDone()){
-                        gameEnded();
-                    }
-                }
-                case "NW" -> {
-                    rock.move(Heading.NW);
-                    if (rock.isGameDone()){
-                        gameEnded();
-                    }
-                }
-                case "SW" -> {
-                    rock.move(Heading.SW);
-                    if (rock.isGameDone()){
-                        gameEnded();
-                    }
-                }
-                case "SE" -> {
-                    rock.move(Heading.SE);
-                    if (rock.isGameDone()){
-                        gameEnded();
-                    }
-                }
                 case "SaveAs" -> {
                     fName = Utilities.getFileName((String) null, false);
                     ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
@@ -164,59 +108,8 @@ public class AppPanel extends JPanel implements ActionListener{
         }
     }
 
-    //throws dialogue box determining win or loss
-    private void gameEnded(){
-        if (rock.getxPos() == 19 && rock.getyPos() == 19){
-            JOptionPane.showMessageDialog(null, "Congratulations! You win!");
-        }
-        else JOptionPane.showMessageDialog(null, "You died :(");
-    }
-    class ControlPanel extends JPanel {
-        public ControlPanel() {
-            setBackground(Color.PINK);
-            JPanel panel = new JPanel(new BorderLayout());
-            panel.setLayout(new GridLayout(4, 2));
-            JButton north = new JButton("N");
-            JButton south = new JButton("S");
-            JButton east = new JButton("E");
-            JButton west = new JButton("W");
-
-            JButton northeast = new JButton("NE");
-            JButton northwest = new JButton("NW");
-            JButton southwest = new JButton("SW");
-            JButton southeast = new JButton("SE");
-
-            north.addActionListener(AppPanel.this);
-            panel.add(north);
-
-            south.addActionListener(AppPanel.this);
-            panel.add(south);
-
-            east.addActionListener(AppPanel.this);
-            panel.add(east);
-
-            west.addActionListener(AppPanel.this);
-            panel.add(west);
-
-            northwest.addActionListener(AppPanel.this);
-            panel.add(northwest);
-
-            northeast.addActionListener(AppPanel.this);
-            panel.add(northeast);
-
-            southwest.addActionListener(AppPanel.this);
-            panel.add(southwest);
-
-            southeast.addActionListener(AppPanel.this);
-            panel.add(southeast);
-
-            add(panel);
-        }
-    }
-
     public static void main(String[] args) {
         AppPanel app = new AppPanel();
-
         MineField board = new MineField();
         board.test();
     }
