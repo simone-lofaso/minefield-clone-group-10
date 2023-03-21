@@ -111,26 +111,47 @@ public class AppPanel extends JPanel implements ActionListener{
                         gameEnded();
                     }
                 }
+                case "Save" -> {
+                    //wip
+                    String defaultPath = new java.io.File(".").getCanonicalPath()+ "\\minefieldsavefolder";
+                    System.out.println("Current directory:" + defaultPath);
+                    File DefaultDirectory = new File(defaultPath);
+                    if(DefaultDirectory.mkdirs()) {
+                        System.out.println("Directory created " + defaultPath + ".");
+                    } else {
+                        System.out.println("Directory cannot be created.(already exists) Directory is " + defaultPath + ".");
+                    }
+
+                    //fName = Utilities.getFileName((String) null, false);
+                    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(defaultPath + "\\defaultsave.ser"));
+                    os.writeObject(view);
+                    os.writeObject(rock);
+                    os.close();
+                }
                 case "SaveAs" -> {
+                    //wip
                     fName = Utilities.getFileName((String) null, false);
-                    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
-                    //os.writeObject(turtle);
+                    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName + ".ser"));
+                    os.writeObject(view);
+                    os.writeObject(rock);
                     os.close();
                 }
                 case "Open" -> {
+                    //wip
                     if (Utilities.confirm("Are you sure? Unsaved changes will be lost!")) {
                         String fName = Utilities.getFileName((String) null, true);
                         ObjectInputStream is = new ObjectInputStream(new FileInputStream(fName));
-                        //turtle = (Turtle) is.readObject();
-                        //view.setTurtle(turtle);
+                        view = (MinefieldView) is.readObject();
+                        rock = (SgtRock) is.readObject();
                         is.close();
                     }
 
                 }
                 case "New" -> {
                     if (Utilities.confirm("Are you sure? Unsaved changes will be lost!")) {
-                        //turtle = new Turtle();
-                        //view.setTurtle(turtle);
+                        //wip
+                        rock.resetSgt();
+                        view = new MinefieldView();
                     }
                 }
                 case "Quit" -> {
@@ -216,7 +237,6 @@ public class AppPanel extends JPanel implements ActionListener{
 
     public static void main(String[] args) {
         AppPanel app = new AppPanel();
-
         MineField board = new MineField();
         board.test();
     }

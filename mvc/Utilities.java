@@ -64,13 +64,21 @@ public class Utilities {
         int returnVal;
         if (open) {
             returnVal = chooser.showOpenDialog((Component)null);
-            if (returnVal == 0) {
+            //user picks file location
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 result = chooser.getSelectedFile().getPath();
+            } else {
+                //user didnt pick file option
+                //return result;
             }
         } else {
             returnVal = chooser.showSaveDialog((Component)null);
-            if (returnVal == 0) {
+            //user picks file location
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 result = chooser.getSelectedFile().getPath();
+            } else {
+                //user didnt pick file option
+                //return result;
             }
         }
 

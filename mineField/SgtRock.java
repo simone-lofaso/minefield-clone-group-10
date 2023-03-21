@@ -23,6 +23,8 @@ public class SgtRock extends Model {
         yPos = 0;
         gameDone = false;
     }
+
+    //updates board for every change
     private void updateNeighbors(){
         MineField.field[xPos][yPos].color = Color.white;
         if (yPos > 0){ //North tile
@@ -153,5 +155,12 @@ public class SgtRock extends Model {
         if(MineField.getHasMine(xPos, yPos)){
             gameDone = true;
         }
+    }
+
+    //resetting player position to use for new game
+    public void resetSgt() {
+        xPos=0;
+        yPos=0;
+        gameDone=false;
     }
 }
