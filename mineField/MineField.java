@@ -28,6 +28,16 @@ public class MineField {
         field[0][0].hasMine = false;
         field[19][19].hasMine = false;
         field[19][19].color = Color.green;
+
+        field[0][0].seen = true;
+        field[0][0].color = Color.white;
+        field[0][1].seen = true;
+        field[0][1].color = Color.gray;
+        field[1][0].seen = true;
+        field[1][0].color = Color.gray;
+        field[1][1].seen = true;
+        field[1][1].color = Color.gray;
+
         /*use another nested for loop here to iterate through the grid after mines are generated and count
         neighboring mines to set adjMines for each cell :)
          */
