@@ -7,15 +7,29 @@
  */
 package mineField;
 
+import mvc.*;
+
 import java.awt.*;
 import java.util.Random;
 
-public class MineField {
+public class Minefield extends Model{
+
+    // initially from SgtRock
+    private int xPos;
+    private int yPos;
+    private boolean gameDone;
+
     private static final int percentMined = 5;
     public static Cell[][] field;
-    public MineField(){ //should be a 20x20 grid of Cells
+    public Minefield(){
         field = new Cell[20][20];
         Random mineGen = new Random();
+
+        //from SgtRock
+        xPos = 0;
+        yPos = 0;
+        gameDone = false;
+
         for(int i = 0; i < field.length; i++){
             for (int j = 0; j < field[0].length; j++){
                 field[i][j] = new Cell();
@@ -30,7 +44,7 @@ public class MineField {
         field[19][19].color = Color.green;
 
         field[0][0].seen = true;
-        field[0][0].color = Color.white;
+        //field[0][0].color = Color.white;
         field[0][1].seen = true;
         field[0][1].color = Color.gray;
         field[1][0].seen = true;
@@ -38,10 +52,6 @@ public class MineField {
         field[1][1].seen = true;
         field[1][1].color = Color.gray;
 
-        /*use another nested for loop here to iterate through the grid after mines are generated and count
-        neighboring mines to set adjMines for each cell :)
-         */
-        //for loop to check for adj mines - non-inclusive of border cells
         for(int i = 1; i < field.length - 1; i++){
             for(int j = 1; j < field.length - 1; j++){
                 //check diagonals for mines
@@ -197,6 +207,129 @@ public class MineField {
             field[field.length - 1][field.length - 1].adjMines++;
         }
     }
+
+    public static boolean getHasMine(int x, int y){
+        return field[x][y].hasMine;
+    }
+
+    // from SgtRock
+    /**private void updateNeighbors(){
+        Minefield.field[xPos][yPos].color = Color.white;
+        if (yPos > 0){ //North tile
+            Minefield.field[xPos][yPos - 1].seen = true;
+            if(Minefield.field[xPos][yPos - 1].color != Color.gray) {
+                Minefield.field[xPos][yPos - 1].color = Color.gray;
+            }
+        }
+        if (yPos < 19){ //South Tile
+            Minefield.field[xPos][yPos + 1].seen = true;
+            if(Minefield.field[xPos][yPos + 1].color != Color.gray) {
+                Minefield.field[xPos][yPos + 1].color = Color.gray;
+            }
+        }
+        if (xPos > 0){//West Tile
+            Minefield.field[xPos - 1][yPos].seen = true;
+            if(Minefield.field[xPos - 1][yPos].color != Color.gray) {
+                Minefield.field[xPos - 1][yPos].color = Color.gray;
+            }
+        }
+        if (xPos < 19){//East Tile
+            Minefield.field[xPos + 1][yPos].seen = true;
+            if(Minefield.field[xPos + 1][yPos].color != Color.gray) {
+                Minefield.field[xPos + 1][yPos].color = Color.gray;
+            }
+        }
+        if (xPos > 0 && yPos > 0){ //NW
+            Minefield.field[xPos - 1][yPos - 1].seen = true;
+            if(Minefield.field[xPos - 1][yPos - 1].color != Color.gray) {
+                Minefield.field[xPos - 1][yPos - 1].color = Color.gray;
+            }
+        }
+        if (xPos < 19 && yPos > 0){ //NE
+            Minefield.field[xPos + 1][yPos - 1].seen = true;
+            if(Minefield.field[xPos + 1][yPos - 1].color != Color.gray) {
+                Minefield.field[xPos + 1][yPos - 1].color = Color.gray;
+            }
+        }
+        if (xPos > 0 && yPos < 19){ //SW
+            Minefield.field[xPos - 1][yPos + 1].seen = true;
+            if(Minefield.field[xPos - 1][yPos + 1].color != Color.gray) {
+                Minefield.field[xPos - 1][yPos + 1].color = Color.gray;
+            }
+        }
+        if (xPos < 19 && yPos < 19){ //SW
+            Minefield.field[xPos + 1][yPos + 1].seen = true;
+            if(Minefield.field[xPos + 1][yPos + 1].color != Color.gray) {
+                Minefield.field[xPos + 1][yPos + 1].color = Color.gray;
+            }
+        }
+    }**/
+
+    // some changes here so sgt rock moves in the right direction
+    void move(String heading) {
+        if(!gameDone){
+            switch (heading) {
+                case "S" ->{
+                    xPos++;
+                    //updateNeighbors();
+                }
+                case "W" -> {
+                    yPos--;
+                    //updateNeighbors();
+                }
+                case "E" -> {
+                    yPos++;
+                    //updateNeighbors();
+                }
+                case "N" -> {
+                    xPos--;
+                    //updateNeighbors();
+                }
+                case "NW" -> {
+                    yPos--;
+                    xPos--;
+                    //updateNeighbors();
+                }
+                case "NE" -> {
+                    yPos++;
+                    xPos--;
+                    //updateNeighbors();
+                }
+                case "SW" -> {
+                    yPos--;
+                    xPos++;
+                    //updateNeighbors();
+                }
+                case "SE" -> {
+                    yPos++;
+                    xPos++;
+                    //updateNeighbors();
+                }
+            }
+
+            try{
+                field[xPos][yPos].seen = true;
+            }catch(Exception e){
+                Utilities.error("Out of bounds");
+            }
+
+            // lose message
+            if(field[xPos][yPos].hasMine){
+                Utilities.error("You died :(");
+                gameDone = true;
+            }
+            // win message
+            if(xPos == 19 && yPos == 19){
+                Utilities.inform("Congratulations! You win!");
+            }
+            changed();
+        }
+        else{
+            return;
+        }
+
+    }
+
     public void test(){
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -206,7 +339,7 @@ public class MineField {
         }
     }
 
-    public static boolean getHasMine(int x, int y){
-        return field[x][y].hasMine;
-    }
+    Cell[][] getField(){return field;}
+    int userX(){return xPos;}
+    int userY(){return yPos;}
 }
