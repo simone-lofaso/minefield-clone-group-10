@@ -334,8 +334,8 @@ public class Minefield extends Model{
         this.gameDone = gameDone;
     }
 
-    public void getGameDone(){
-	return gameDone;
+    public boolean getGameDone(){
+	    return gameDone;
     }
 
     public static boolean getHasMine(int x, int y){

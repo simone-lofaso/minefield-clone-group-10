@@ -48,7 +48,7 @@ public class MinefieldView extends View {
                     c.setBorder(BorderFactory.createLineBorder(Color.WHITE));
                 }
                 // cells with mines will update to show a red border after sgt rock is on it
-                if(cell == minefield.getField()[minefield.userX()][minefield.userY()] && !field.getGameDone()){
+                if(cell == minefield.getField()[minefield.userX()][minefield.userY()] && !minefield.getGameDone()){
                     c.setBorder(BorderFactory.createLineBorder(Color.blue));
                     if(cell.hasMine){
                         c.setBorder(BorderFactory.createLineBorder(Color.red));
@@ -56,7 +56,7 @@ public class MinefieldView extends View {
                         minefield.setGameDone(true);
                     }
                 }
-                if (minefield.getField()[minefield.userX()][minefield.userY()] == minefield.getField()[19][19] && !field.getGameDone()){
+                if (minefield.getField()[minefield.userX()][minefield.userY()] == minefield.getField()[19][19] && !minefield.getGameDone()){
                     JOptionPane.showMessageDialog(null, "You win! :)");
                     minefield.setGameDone(true);
                 }
