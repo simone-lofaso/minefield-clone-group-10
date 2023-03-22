@@ -1,29 +1,53 @@
 package mineField;
 
+import mvc.View;
+
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
 
-/**
- * Note for team: this should probably extend view instead of jpanel, but I am not sure. Please
- * investigate and let me know when/if you change it
- */
-public class MinefieldView extends JPanel {
-    public MinefieldView() {
 
+public class MinefieldView extends View {
+
+    public MinefieldView(Minefield minefield){
+        super(minefield);
+        propertyChange(null);
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt){
+
+        setLayout(new GridLayout(20,20));
         setBackground(Color.GRAY);
-        setLayout(new GridLayout(20, 20));
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
-                JLabel cell = new JLabel();
-                cell.setBackground(Color.gray);
-                cell.setBorder(BorderFactory.createLineBorder(Color.black));
-                cell.setText("?");
+        removeAll();
 
-                //exit cell has a green border
-                if (i == 19 && j == 19){
-                    cell.setBorder(BorderFactory.createLineBorder(Color.green));
+        Minefield minefield = (Minefield) model;
+        for(int i = 0; i < minefield.getField().length; i++){
+            for(int j = 0; j < minefield.getField()[i].length; j++){
+
+                // sets up field 
+                JLabel c = new JLabel();
+                c.setBorder(BorderFactory.createLineBorder(Color.black));
+                c.setText("?");
+
+                // if already seen, border is white and displays number of mines nearby
+                mineField.Cell cell = minefield.getField()[i][j];
+                if(cell.seen){
+                    c.setBorder(BorderFactory.createLineBorder(Color.white));
+                    c.setText(String.valueOf(minefield.getField()[i][j].adjMines));
                 }
-                add(cell);
+                // exit cell has a green border
+                if(i == 19 && j == 19){
+                    c.setBorder(BorderFactory.createLineBorder(Color.green));
+                }
+                // cells with mines will update to show a red border after sgt rock is on it
+                if(cell == minefield.getField()[minefield.userX()][minefield.userY()]){
+                    c.setBorder(BorderFactory.createLineBorder(Color.blue));
+                    if(cell.hasMine){
+                        c.setBorder(BorderFactory.createLineBorder(Color.red));
+                    }
+                }
+                add(c);
             }
         }
     }
