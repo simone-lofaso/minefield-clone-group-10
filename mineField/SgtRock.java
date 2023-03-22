@@ -26,53 +26,53 @@ public class SgtRock extends Model {
 
     //updates board for every change
     private void updateNeighbors(){
-        MineField.field[xPos][yPos].color = Color.white;
+        Minefield.field[xPos][yPos].color = Color.white;
         if (yPos > 0){ //North tile
-            MineField.field[xPos][yPos - 1].seen = true;
-            if(MineField.field[xPos][yPos - 1].color != Color.gray) {
-                MineField.field[xPos][yPos - 1].color = Color.gray;
+            Minefield.field[xPos][yPos - 1].seen = true;
+            if(Minefield.field[xPos][yPos - 1].color != Color.gray) {
+                Minefield.field[xPos][yPos - 1].color = Color.gray;
             }
         }
         if (yPos < 19){ //South Tile
-            MineField.field[xPos][yPos + 1].seen = true;
-            if(MineField.field[xPos][yPos + 1].color != Color.gray) {
-                MineField.field[xPos][yPos + 1].color = Color.gray;
+            Minefield.field[xPos][yPos + 1].seen = true;
+            if(Minefield.field[xPos][yPos + 1].color != Color.gray) {
+                Minefield.field[xPos][yPos + 1].color = Color.gray;
             }
         }
         if (xPos > 0){//West Tile
-            MineField.field[xPos - 1][yPos].seen = true;
-            if(MineField.field[xPos - 1][yPos].color != Color.gray) {
-                MineField.field[xPos - 1][yPos].color = Color.gray;
+            Minefield.field[xPos - 1][yPos].seen = true;
+            if(Minefield.field[xPos - 1][yPos].color != Color.gray) {
+                Minefield.field[xPos - 1][yPos].color = Color.gray;
             }
         }
         if (xPos < 19){//East Tile
-            MineField.field[xPos + 1][yPos].seen = true;
-            if(MineField.field[xPos + 1][yPos].color != Color.gray) {
-                MineField.field[xPos + 1][yPos].color = Color.gray;
+            Minefield.field[xPos + 1][yPos].seen = true;
+            if(Minefield.field[xPos + 1][yPos].color != Color.gray) {
+                Minefield.field[xPos + 1][yPos].color = Color.gray;
             }
         }
         if (xPos > 0 && yPos > 0){ //NW
-            MineField.field[xPos - 1][yPos - 1].seen = true;
-            if(MineField.field[xPos - 1][yPos - 1].color != Color.gray) {
-                MineField.field[xPos - 1][yPos - 1].color = Color.gray;
+            Minefield.field[xPos - 1][yPos - 1].seen = true;
+            if(Minefield.field[xPos - 1][yPos - 1].color != Color.gray) {
+                Minefield.field[xPos - 1][yPos - 1].color = Color.gray;
             }
         }
         if (xPos < 19 && yPos > 0){ //NE
-            MineField.field[xPos + 1][yPos - 1].seen = true;
-            if(MineField.field[xPos + 1][yPos - 1].color != Color.gray) {
-                MineField.field[xPos + 1][yPos - 1].color = Color.gray;
+            Minefield.field[xPos + 1][yPos - 1].seen = true;
+            if(Minefield.field[xPos + 1][yPos - 1].color != Color.gray) {
+                Minefield.field[xPos + 1][yPos - 1].color = Color.gray;
             }
         }
         if (xPos > 0 && yPos < 19){ //SW
-            MineField.field[xPos - 1][yPos + 1].seen = true;
-            if(MineField.field[xPos - 1][yPos + 1].color != Color.gray) {
-                MineField.field[xPos - 1][yPos + 1].color = Color.gray;
+            Minefield.field[xPos - 1][yPos + 1].seen = true;
+            if(Minefield.field[xPos - 1][yPos + 1].color != Color.gray) {
+                Minefield.field[xPos - 1][yPos + 1].color = Color.gray;
             }
         }
         if (xPos < 19 && yPos < 19){ //SW
-            MineField.field[xPos + 1][yPos + 1].seen = true;
-            if(MineField.field[xPos + 1][yPos + 1].color != Color.gray) {
-                MineField.field[xPos + 1][yPos + 1].color = Color.gray;
+            Minefield.field[xPos + 1][yPos + 1].seen = true;
+            if(Minefield.field[xPos + 1][yPos + 1].color != Color.gray) {
+                Minefield.field[xPos + 1][yPos + 1].color = Color.gray;
             }
         }
     }
@@ -91,54 +91,54 @@ public class SgtRock extends Model {
         return yPos;
     }
 
-    public void move(Heading direction){
+    public void move(String direction){
         switch(direction){
-            case N -> {
+            case "N" -> {
                 if(yPos != 0){
                     yPos--;
                     updateNeighbors();
                 }
             }
-            case S -> {
+            case "S" -> {
                 if(yPos != 19){
                     yPos++;
                     updateNeighbors();
                 }
             }
-            case W -> {
+            case "W" -> {
                 if(xPos != 0){
                     xPos--;
                     updateNeighbors();
                 }
             }
-            case E -> {
+            case "E" -> {
                 if(xPos != 19){
                     xPos++;
                     updateNeighbors();
                 }
             }
-            case NW -> {
+            case "NW" -> {
                 if(yPos != 0 && xPos != 0){
                     xPos--;
                     yPos--;
                     updateNeighbors();
                 }
             }
-            case NE -> {
+            case "NE" -> {
                 if(yPos != 0 && xPos != 19){
                     yPos--;
                     xPos++;
                     updateNeighbors();
                 }
             }
-            case SE -> {
+            case "SE" -> {
                 if(yPos != 19 && xPos != 19){
                     yPos++;
                     xPos++;
                     updateNeighbors();
                 }
             }
-            case SW -> {
+            case "SW" -> {
                 if(yPos != 19 && xPos != 0){
                     yPos++;
                     xPos--;
@@ -146,13 +146,16 @@ public class SgtRock extends Model {
                 }
             }
         }
+        if (xPos != 19 && yPos != 19){
+            Minefield.field[xPos][yPos].hasVisited = true;
+        }
         changed(); //I THINK this updates the model, might not be needed
         //win condition
         if(xPos == 19 && yPos == 19){
             gameDone = true;
         }
         //lose condition
-        if(MineField.getHasMine(xPos, yPos)){
+        if(Minefield.getHasMine(xPos, yPos)){
             gameDone = true;
         }
     }

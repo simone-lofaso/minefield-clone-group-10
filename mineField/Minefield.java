@@ -257,11 +257,6 @@ public class Minefield extends Model{
             }
         }
     }
-
-    public boolean isGameDone() {
-        return gameDone;
-    }
-
     public void move(String direction){
         if (gameDone){
             return;
@@ -337,6 +332,10 @@ public class Minefield extends Model{
 
     public void setGameDone(boolean gameDone) {
         this.gameDone = gameDone;
+    }
+
+    public void getGameDone(){
+	return gameDone;
     }
 
     public static boolean getHasMine(int x, int y){
