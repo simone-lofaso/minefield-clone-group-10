@@ -15,6 +15,8 @@ public class Cell {
     public boolean seen; //true if cell has been seen by Sgt Rock, false otherwise
     public int adjMines; //number of mines touching the indicated cell
 
+    public boolean hasVisited;
+
     public Color color; //grey for unvisited, white for visited, green for win
 
     public Cell(){
@@ -22,5 +24,6 @@ public class Cell {
         seen = false;
         adjMines = 0;
         color = Color.gray;
+        hasVisited = false;
     }
 }

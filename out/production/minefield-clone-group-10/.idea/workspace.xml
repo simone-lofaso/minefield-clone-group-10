@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a17cf82e-bb9c-4c9a-bb7b-c4842150bb7f" name="Changes" comment="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github">
+      <change beforePath="$PROJECT_DIR$/mineField/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineField/MineField.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/MineField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineField/MinefieldView.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/MinefieldView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineField/SgtRock.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/SgtRock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/AppPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/AppPanel.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MsogsMQKHngRfKLYd2hEE1Zk7r" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;16&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Play Mine Field" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mineField.MinefieldPanel" />
+      <module name="minefield-clone-group-10" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a17cf82e-bb9c-4c9a-bb7b-c4842150bb7f" name="Changes" comment="" />
+      <created>1678565764427</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678565764427</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit: set up all files">
+      <created>1678568112932</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678568112932</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Implemented AppPanel and ControlPanel (view not yet added)">
+      <created>1679023340935</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679023340935</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implemented Cell, MineField, and SgtRock. Started AppPanel, left notes and documentation">
+      <created>1679028502293</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679028502293</updated>
+    </task>
+    <task id="LOCAL-00004" summary="implemented and tested checks and representation for adjMines and game board generation; modified button names in AppPanel to match example">
+      <created>1679090561413</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679090561413</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created Heading enum and implemented movement in SgtRock. Implemented win/lose conditions and dialogue boxes">
+      <created>1679182959586</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679182959586</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed MineFieldView, tested death condition">
+      <created>1679262683100</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679262683100</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added logic for updating adjMines and added color updates in the new updateNeighbors function">
+      <created>1679365809195</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679365809195</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes">
+      <created>1679462091892</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679462091892</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github">
+      <created>1679462585755</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679462585755</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github">
+      <created>1679462606166</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679462606166</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit: set up all files" />
+    <MESSAGE value="Implemented AppPanel and ControlPanel (view not yet added)" />
+    <MESSAGE value="Implemented Cell, MineField, and SgtRock. Started AppPanel, left notes and documentation" />
+    <MESSAGE value="implemented and tested checks and representation for adjMines and game board generation; modified button names in AppPanel to match example" />
+    <MESSAGE value="Created Heading enum and implemented movement in SgtRock. Implemented win/lose conditions and dialogue boxes" />
+    <MESSAGE value="Fixed MineFieldView, tested death condition" />
+    <MESSAGE value="Added logic for updating adjMines and added color updates in the new updateNeighbors function" />
+    <MESSAGE value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes" />
+    <MESSAGE value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github" />
+  </component>
+</project>
