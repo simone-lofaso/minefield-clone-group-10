@@ -2,7 +2,7 @@ package mvc;
 
 import java.awt.Component;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.io.*;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -31,6 +31,38 @@ public class Utilities {
         }
 
         inform(helpString);
+    }
+    // save model
+    public static void save(Model model, Boolean saveAs) {
+        String fName = model.getFileName();
+        if (fName == null || saveAs) {
+            fName = getFileName(fName, false);
+            model.setFileName(fName);
+        }
+        try {
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
+            model.setUnsavedChanges(false);
+            os.writeObject(model);
+            os.close();
+        } catch (Exception err) {
+            model.setUnsavedChanges(true);
+            Utilities.error(err);
+        }
+    }
+
+    // open model
+    public static Model open(Model model) {
+        //saveChanges(model);
+        String fName = getFileName(model.getFileName(), true);
+        Model newModel = null;
+        try {
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream(fName));
+            newModel = (Model)is.readObject();
+            is.close();
+        } catch (Exception err) {
+            Utilities.error(err);
+        }
+        return newModel;
     }
 
     public static void error(String gripe) {

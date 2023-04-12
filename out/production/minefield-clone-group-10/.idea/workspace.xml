@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a17cf82e-bb9c-4c9a-bb7b-c4842150bb7f" name="Changes" comment="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github">
-      <change beforePath="$PROJECT_DIR$/mineField/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mineField/MineField.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/MineField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mineField/MinefieldView.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/MinefieldView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mineField/SgtRock.java" beforeDir="false" afterPath="$PROJECT_DIR$/mineField/SgtRock.java" afterDir="false" />
+    <list default="true" id="a17cf82e-bb9c-4c9a-bb7b-c4842150bb7f" name="Changes" comment="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed git detached head">
       <change beforePath="$PROJECT_DIR$/mvc/AppPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/AppPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/minefield-clone-group-10/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minefield-clone-group-10/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/minefield-clone-group-10/mvc/AppPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minefield-clone-group-10/mvc/AppPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/minefield-clone-group-10/mvc/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minefield-clone-group-10/mvc/Utilities.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679462606166</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed git detached head">
+      <created>1679465904316</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679465904316</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +162,7 @@
     <MESSAGE value="Added logic for updating adjMines and added color updates in the new updateNeighbors function" />
     <MESSAGE value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes" />
     <MESSAGE value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed github" />
+    <MESSAGE value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed git detached head" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed errors, re-added win and lose conditions, re-added previous move method, various bug fixes, fixed git detached head" />
   </component>
 </project>

@@ -86,11 +86,7 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
                 case "Open": {
 
                     if (Utilities.confirm("Are you sure? Unsaved changes will be lost!")) {
-                        String fName = Utilities.getFileName((String) null, true);
-                        ObjectInputStream is = new ObjectInputStream(new FileInputStream(fName));
-                        this.model = (Model) is.readObject();
-                        this.view.setModel(model);
-                        is.close();
+                        model = Utilities.open(model);
                     }
                     break;
 
